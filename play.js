@@ -22,15 +22,12 @@ var p2_score = 0;
 
 function getPlayerInfo() {
     var user_game = localStorage.getItem("gamename");
-    console.log(user_game);
     var ref = firebase.database().ref("/" + user_game);
     ref.once("value").then(function(snapshot){
             var childData = snapshot.val();
             console.log(childData);
             var creator=childData.Creator;
             var player=childData.PlayerName;
-            console.log(creator);
-            console.log(player);
             p1_name = creator;
             p2_name = player;
             document.getElementById("player_1_name_label").innerHTML = p1_name + ": ";
@@ -46,6 +43,9 @@ function send(){
     var user_word = document.getElementById("word_User").value;
     var word = user_word.toUpperCase();
     localStorage.setItem("Word", word);
+    firebase.database().ref("/" + user_game).update({
+        Word: word
+    });
     console.log("WORD IN UPPERCASE: " + word);
     word = word.replace(word.charAt(1), "_");
     console.log("After removing 1st letter:" + word);
@@ -62,7 +62,14 @@ function send(){
 function check(){
     var uanswer = document.getElementById("user_answer").value;
     console.log(uanswer);
-    var realWord = localStorage.getItem("Word");
+    var user_game = localStorage.getItem("gamename");
+    var realWord;
+    var ref = firebase.database().ref("/" + user_game);
+    ref.once("value").then(function(snapshot){
+        var childData = snapshot.val();
+        realWord=childData.Word;
+    });
+   // var realWord = localStorage.getItem("Word");
     console.log(realWord);
     var p1Turn = document.getElementById("player1_turn").innerHTML;
     if (uanswer.toUpperCase() == realWord){
