@@ -1,0 +1,42 @@
+.heading {
+  font-family: century gothic;
+  font-weight: bolder;
+}
+
+body {
+  background: lightblue;
+  font-family: century gothic;
+}
+
+.login_div {
+  background: white;
+  padding: 10px;
+  float: none;
+  border-radius: 15px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
+}
+
+#player1_name,
+#player2_name {
+  display: inline-block;
+  margin-left: 20px;
+}
+#word {
+  width: 60%;
+}
+#word_display {
+  letter-spacing: 5px;
+}
+#output {
+  background: white;
+  border-radius: 10px;
+  border-top: 10px solid #aa4465;
+  padding: 10px;
+  float: none;
+  text-align: left;
+}
+.display_horizontal {
+  display: inline-block;
+}

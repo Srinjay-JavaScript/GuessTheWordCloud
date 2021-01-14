@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+         <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="style.css">
+         
+        <title>Guess The Word Cloud</title>
+    </head>
+    <body onload="getPlayerInfo()">
+     <h4 style="font-family: century gothic; color: black;" class="display_horizontal" id="player_1_name_label"></h4>
+     <span style="font-family: century gothic; color: black;" class="display_horizontal" id="player_1_score_label"></span>
+     <div>
+    <h4 style="font-family: century gothic; color: black;" class="display_horizontal" id="player_2_name_label"></h4>
+     <span style="font-family: century gothic; color: black;" class="display_horizontal" id="player_2_score_label"></span>
+    </div>
+     <div class="container">
+         <center>
+             <h2 class="heading">GUESS THE WORD</h2>
+             <h1 id="player1_turn" class="display_horizontal">Question Turn -</h1><h1 style="font-family: century gothic; color: black;" class="display_horizontal" id="player_1_name"></h1>
+             <div>
+            <h1 id="player2_turn" class="display_horizontal">Answer Turn -</h1><h1 style="font-family: century gothic; color: black;" class="display_horizontal" id="player_2_name"></h1>
+            </div>
+             
+             <h3 id="player_question"></h3>
+             <div id="output" class="col lg-6"></div>
+             <br>
+             <br>
+             <label>Send the word : <b style="font-family: century gothic; color: red;">Try to enter a word with more than 5 letters.</b></label>
+             <input class="form-control" placeholder="Enter a word: " id="word_User">
+             <br>
+             <button class="btn btn-primary" onclick="send()">Send</button>
+             <script src="play.js"></script>
+         </center>
+     </div>
+    </body>
+</html>
